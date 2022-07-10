@@ -6,6 +6,10 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const orgs = require("./routes/api/organizations");
 // const JobPost = require("./routes/api/JobPost");
+const JobPosts = require("./routes/api/Jobadd");
+const getOpenings = require("./routes/api/getOpenings");
+const getJobs = require("./routes/api/getJobs");
+
 const app = express();
 
 // Bodyparser middleware
@@ -35,6 +39,9 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/organizations", orgs);
 // app.use("/api/JobPost",JobPost);
+app.use("/api/Jobadd",JobPosts);
+app.use("/api/getOpenings",getOpenings);
+app.use("/api/getJobs",getJobs);
 
 const port = process.env.PORT || 5000;
 
