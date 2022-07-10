@@ -13,6 +13,7 @@ import RegisterUser from "./components/auth/RegisterUser";
 import LoginUser from "./components/auth/LoginUser";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import DashboardOrg from "./components/dashboard/DashboardOrg";
 import Joblisting from "./components/joblisting/Joblisting";
 
 import "./App.css";
@@ -52,6 +53,7 @@ class App extends Component {
             <Route exact path="/loginorg" component={LoginOrg} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/dashboardorg" component={DashboardOrg} />
               <PrivateRoute exact path="/listings" component={Joblisting} />
             </Switch>
           </div>

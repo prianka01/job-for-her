@@ -5,7 +5,7 @@ const passport = require("passport");
 
 const users = require("./routes/api/users");
 const orgs = require("./routes/api/organizations");
-const JobPost = require("./routes/api/JobPost");
+// const JobPost = require("./routes/api/JobPost");
 const app = express();
 
 // Bodyparser middleware
@@ -34,7 +34,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/organizations", orgs);
-app.use("/api/JobPost",JobPost);
+// app.use("/api/JobPost",JobPost);
 
 const port = process.env.PORT || 5000;
 
