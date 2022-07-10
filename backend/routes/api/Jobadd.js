@@ -7,8 +7,9 @@ const passport = require("passport");
 
 const JobPost = require("../../models/JobPost");
 
-const newJobPost = new JobPost({
 
+router.post("/JobPost", (req, res) => {
+const newJobPost = new JobPost({
     title: req.body.title,
     type: req.body.type,
     mode: req.body.mode,
@@ -18,5 +19,10 @@ const newJobPost = new JobPost({
     desc: req.body.desc,
     techStack: req.body.techStack,
   });
+  newJobPost
+  .save()
+            .then((user) => res.json(user))
+            .catch((err) => console.log(err));
+});
 
   module.exports = router;
