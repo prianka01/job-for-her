@@ -19,6 +19,38 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  contact: {
+    type: Number,
+    required: false,
+  },
+  education: {
+    type: String,
+    required: false,
+  },
+  workEx: {
+    type: Number,
+    required: false,
+  },
+  breakTime: {
+    type: String,
+    required: false,
+  },
+  workDomain: {
+    type: String,
+    required: false,
+  },
+  workHours: {
+    type: String,
+    required: false,
+  },
+  techStack: {
+    type: String,
+    required: false,
+  },
+  resume: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = User = mongoose.model("users", UserSchema);

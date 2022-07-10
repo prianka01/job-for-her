@@ -19,7 +19,7 @@ class Landing extends Component {
             <br />
             <div className="col s6">
               <Link
-                to="/register"
+                to="/registeruser"
                 style={{
                   width: "140px",
                   borderRadius: "3px",
@@ -27,12 +27,12 @@ class Landing extends Component {
                 }}
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
-                Register
+                RegisterUser
               </Link>
             </div>
             <div className="col s6">
               <Link
-                to="/login"
+                to="/loginuser"
                 style={{
                   width: "140px",
                   borderRadius: "3px",
@@ -40,7 +40,33 @@ class Landing extends Component {
                 }}
                 className="btn btn-large btn-flat waves-effect white black-text"
               >
-                Log In
+                LogIn User
+              </Link>
+            </div>
+            <div className="col s6">
+              <Link
+                to="/registerorg"
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                }}
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              >
+                Register Organization
+              </Link>
+            </div>
+            <div className="col s6">
+              <Link
+                to="/loginorg"
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                }}
+                className="btn btn-large btn-flat waves-effect white black-text"
+              >
+                LogIn Organization
               </Link>
             </div>
           </div>

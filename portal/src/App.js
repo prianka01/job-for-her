@@ -3,19 +3,20 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
-import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { setCurrentUser, logoutUser, loginOrg } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
+import RegisterUser from "./components/auth/RegisterUser";
+import LoginUser from "./components/auth/LoginUser";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Joblisting from "./components/joblisting/Joblisting";
 
 import "./App.css";
+import RegisterOrg from "./components/auth/RegisterOrg";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -44,13 +45,14 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            {/* <Switch>
+            <Route exact path="/registeruser" component={RegisterUser} />
+            <Route exact path="/loginuser" component={LoginUser} />
+            <Route exact path="/registerorg" component={RegisterOrg} />
+            <Route exact path="/loginorg" component={loginOrg} />
+            <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/listings" component={Joblisting} />
-            </Switch> */}
+            </Switch>
           </div>
         </Router>
       </Provider>
