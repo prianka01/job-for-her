@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { getJobs } from "../../actions/getInfoActions";
+import { getJobsByOrg } from "../../actions/getInfoActions";
 
-class JobListing extends Component {
+class OrgjobListing extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,9 +12,10 @@ class JobListing extends Component {
     this.getDataFromDb();
   }
   getDataFromDb = async () => {
-    let result = await getJobs();
+    let result = await getJobsByOrg(this.props.location.state.org);
     this.setState({ ...this.state, data: result.data.data });
-    console.log(this.state.data);
+    // console.log(this.state.data);
+    console.log(this.props);
   };
   render() {
     const jobs = this.state.data;
@@ -59,4 +60,4 @@ class JobListing extends Component {
   }
 }
 
-export default JobListing;
+export default OrgjobListing;

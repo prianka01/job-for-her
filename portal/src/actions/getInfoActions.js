@@ -14,3 +14,8 @@ export const getOrg = (name) => {
 export const getJobs = () => {
   return axios.get("/api/jobs/getAll");
 };
+export const getJobsByOrg = (organization) => {
+  return axios.post("/api/jobs/getByOrg", {
+    body: { organization: organization },
+  });
+};

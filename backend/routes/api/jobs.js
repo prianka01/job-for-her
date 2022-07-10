@@ -21,10 +21,10 @@ router.post("/add", (req, res) => {
 });
 
 router.post("/getByOrg", (req, res) => {
-  const org = req.body.organization;
-  JobPost.find({ organization: org }).toArray(function(err, result) {
-    if (err) throw err;
-    return res.json({ success: true, data: result });
+  const org = req.body.body.organization;
+  JobPost.find({ organization: org }).then((data, err) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
   });
 });
 
