@@ -8,9 +8,9 @@ export const getUser = (name) => {
 };
 
 export const getOrg = (name) => {
-    return axios.post("/api/organizations/", { body: { name: name } });
+  return axios.post("/api/organizations/", { body: { name: name } });
 };
 
 export const getJobs = () => {
-    return axios.post("/api/openings/");
-}
+  return axios.get("/api/jobs/getAll");
+};

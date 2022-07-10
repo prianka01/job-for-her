@@ -10,15 +10,14 @@ class DashboardOrg extends Component {
   constructor() {
     super();
     this.state = {
-        data: {},
-        title: "",
-        typejob: "",
-        mode: "",
-        role: "",
-        stipend: 0,
-        techstack: "",
-        desc: "",
-        applicationlink:"",
+      data: {},
+      role: "",
+      typejob: "",
+      mode: "",
+      stipend: 0,
+      techstack: "",
+      desc: "",
+      applylink: "",
     };
   }
   componentDidMount() {
@@ -35,7 +34,7 @@ class DashboardOrg extends Component {
   };
   onProfileInfoClick = () => {
     this.getDataFromDb();
-    };
+  };
 
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
@@ -44,16 +43,15 @@ class DashboardOrg extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-      const newOpening = {
-        organization: this.props.auth.name,
-        title: this.state.title,
-        role: this.state.role,
-        type: this.state.typejob,
-        mode: this.state.mode,
-        stipend: this.state.stipend,
-        desc: this.state.desc,
-        techstack: this.state.techstack,
-        applylink:this.state.applylink
+    const newOpening = {
+      organization: this.state.data.name,
+      role: this.state.role,
+      type: this.state.typejob,
+      mode: this.state.mode,
+      stipend: this.state.stipend,
+      desc: this.state.desc,
+      techstack: this.state.techstack,
+      applylink: this.state.applylink,
     };
 
     addOpening(newOpening);
@@ -100,93 +98,84 @@ class DashboardOrg extends Component {
                 ADD A NEW JOB OPENING
               </p>
               <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.name}
-                  id="title"
-                  type="text"
-                />
-                <label htmlFor="name">Title</label>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.typejob}
-                  id="typejob"
-                  type="text"
-                />
-                <label htmlFor="typejob">Type</label>
-            </div>
-            <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.role}
-                  id="role"
-                  type="text"
-                />
-                <label htmlFor="role">Role</label>
-            </div>
-            <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.mode}
-                  id="mode"
-                  type="text"
-                />
-                <label htmlFor="Mode">Mode</label>
-            </div>
-            <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.stipend}
-                  id="stipend"
-                  type="number"
-                />
-                <label htmlFor="stipend">Stipend</label>
-            </div>
-            <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.desc}
-                  id="desc"
-                  type="text"
-                />
-                <label htmlFor="desc">Description</label>
-            </div>
-            <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.techstack}
-                  id="techstack"
-                  type="text"
-                />
-                <label htmlFor="techstack">Tech Stacks</label>
-            </div>
-            <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.applicationlink}
-                  id="applylink"
-                  type="text"
-                />
-                <label htmlFor="applulink">Application Link</label>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem",
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Add
-                </button>
-              </div>
-            </form>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.role}
+                    id="role"
+                    type="text"
+                  />
+                  <label htmlFor="role">Job Role</label>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.typejob}
+                    id="typejob"
+                    type="text"
+                  />
+                  <label htmlFor="typejob">Type</label>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.mode}
+                    id="mode"
+                    type="text"
+                  />
+                  <label htmlFor="Mode">Mode</label>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.stipend}
+                    id="stipend"
+                    type="number"
+                  />
+                  <label htmlFor="stipend">Stipend</label>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.desc}
+                    id="desc"
+                    type="text"
+                  />
+                  <label htmlFor="desc">Description</label>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.techstack}
+                    id="techstack"
+                    type="text"
+                  />
+                  <label htmlFor="techstack">Tech Stacks</label>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.applylink}
+                    id="applylink"
+                    type="text"
+                  />
+                  <label htmlFor="applylink">Application Link</label>
+                </div>
+                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                  <button
+                    style={{
+                      width: "150px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem",
+                    }}
+                    type="submit"
+                    className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  >
+                    Add
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
