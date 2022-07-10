@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
-import { setCurrentUser, logoutUser, loginOrg } from "./actions/authActions";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -17,6 +17,7 @@ import Joblisting from "./components/joblisting/Joblisting";
 
 import "./App.css";
 import RegisterOrg from "./components/auth/RegisterOrg";
+import LoginOrg from "./components/auth/LoginOrg";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -48,7 +49,7 @@ class App extends Component {
             <Route exact path="/registeruser" component={RegisterUser} />
             <Route exact path="/loginuser" component={LoginUser} />
             <Route exact path="/registerorg" component={RegisterOrg} />
-            <Route exact path="/loginorg" component={loginOrg} />
+            <Route exact path="/loginorg" component={LoginOrg} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/listings" component={Joblisting} />
