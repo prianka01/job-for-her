@@ -12,6 +12,17 @@ const validateLoginInput = require("../../validation/loginorg");
 // Load User model
 const Organization = require("../../models/Organization");
 
+router.post("/", (req, res) => {
+  Organization.findOne({ name: req.body.body.name }).then((user) => {
+    if (user) {
+      return res.json(user);
+    } else {
+      return res
+        .status(400)
+        .json({ email: "Organization does not exist" + req.body.body });
+    }
+  });
+});
 // @route POST api/users/register
 // @desc Register user
 // @access Public

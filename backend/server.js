@@ -5,6 +5,9 @@ const passport = require("passport");
 
 const users = require("./routes/api/users");
 const orgs = require("./routes/api/organizations");
+const jobs = require("./routes/api/jobs");
+
+// const JobPost = require("./routes/api/JobPost");
 const JobPosts = require("./routes/api/Jobadd");
 const getOpenings = require("./routes/api/getOpenings");
 const getJobs = require("./routes/api/getJobs");
@@ -37,9 +40,11 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/organizations", orgs);
-app.use("/api/Jobadd",JobPosts);
-app.use("/api/getOpenings",getOpenings);
-app.use("/api/getJobs",getJobs);
+// app.use("/api/JobPost",JobPost);
+// app.use("/api/Jobadd",JobPosts);
+// app.use("/api/getOpenings",getOpenings);
+// app.use("/api/getJobs",getJobs);
+app.use("/api/jobs", jobs);
 
 const port = process.env.PORT || 5000;
 
