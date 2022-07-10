@@ -94,7 +94,7 @@ class RegisterOrg extends Component {
                     invalid: errors.name,
                   })}
                 />
-                <label htmlFor="name">Sector</label>
+                <label htmlFor="name">Industry</label>
                 <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
