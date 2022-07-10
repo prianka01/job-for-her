@@ -2,10 +2,14 @@
   "dependencies": {
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
+    "http-proxy-middleware": "^2.0.6",
     "jwt-decode": "^3.1.2",
     "node": "^18.5.0",
     "react": "^17.0.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
+  },
+  "scripts": {
+    "start": "concurrently \"cd portal & npm start\" \"cd backend & npm start\" "
   }
 }

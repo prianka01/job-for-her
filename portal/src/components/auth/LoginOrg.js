@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions";
+import { loginOrg } from "../../actions/authActions";
 import classnames from "classnames";
 
-class Login extends Component {
+class LoginOrg extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
+      name: "",
       password: "",
       errors: {},
     };
@@ -42,11 +42,11 @@ class Login extends Component {
     e.preventDefault();
 
     const userData = {
-      email: this.state.email,
+      name: this.state.email,
       password: this.state.password,
     };
 
-    this.props.loginUser(userData);
+    this.props.loginOrg(userData);
   };
 
   render() {
@@ -65,25 +65,25 @@ class Login extends Component {
                 <b>Login</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
+                Don't have an account? <Link to="/registerorg">Register</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
+                  value={this.state.name}
+                  error={errors.name}
                   id="email"
                   type="email"
                   className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound,
+                    invalid: errors.name || errors.namenotfound,
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="name">Name</label>
                 <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
+                  {errors.name}
+                  {errors.namenotfound}
                 </span>
               </div>
               <div className="input-field col s12">
@@ -125,8 +125,8 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+LoginOrg.propTypes = {
+  loginOrg: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
 };
@@ -136,4 +136,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { loginOrg })(LoginOrg);
