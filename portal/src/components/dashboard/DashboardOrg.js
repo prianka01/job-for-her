@@ -85,7 +85,7 @@ class DashboardOrg extends Component {
                 PROFILE INFORMATION
               </p>
               <p>Name={this.state.data.name}</p>
-              <p>Sector={this.state.data.sector}</p>
+              <p>Industry={this.state.data.sector}</p>
             </div>
 
             <br />
