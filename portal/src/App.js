@@ -15,6 +15,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import DashboardOrg from "./components/dashboard/DashboardOrg";
 import Joblisting from "./components/joblisting/Joblisting";
+import OrgjobListing from "./components/joblisting/Orgjoblisting";
 
 import "./App.css";
 import RegisterOrg from "./components/auth/RegisterOrg";
@@ -53,8 +54,13 @@ class App extends Component {
             <Route exact path="/loginorg" component={LoginOrg} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/dashboardorg" component={DashboardOrg} />
+              <PrivateRoute
+                exact
+                path="/dashboardorg"
+                component={DashboardOrg}
+              />
               <PrivateRoute exact path="/listings" component={Joblisting} />
+              <PrivateRoute exact path="/openings" component={OrgjobListing} />
             </Switch>
           </div>
         </Router>

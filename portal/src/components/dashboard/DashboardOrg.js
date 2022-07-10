@@ -70,7 +70,15 @@ class DashboardOrg extends Component {
               </p> */}
             </h4>
             <p className="grey-text text-darken-1">
-              View all job openings <Link to="/listings">Job Openings</Link>
+              View all created jobs{" "}
+              <Link
+                to={{
+                  pathname: "/openings",
+                  state: { org: this.state.data.name },
+                }}
+              >
+                Job Openings
+              </Link>
             </p>
             <div>
               <p className="flow-text grey-text text-darken-1">
