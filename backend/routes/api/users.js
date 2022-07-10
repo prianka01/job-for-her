@@ -12,17 +12,6 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
-router.post("/", (req, res) => {
-  User.findOne({ name: req.body.body.name }).then((user) => {
-    if (user) {
-      return res.json(user);
-    } else {
-      return res
-        .status(400)
-        .json({ email: "User does not exist" + req.body.body });
-    }
-  });
-});
 // @route POST api/users/register
 // @desc Register user
 // @access Public
