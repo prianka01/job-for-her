@@ -44,7 +44,11 @@ class JobListing extends Component {
                 <td>{job.mode}</td>
                 <td>{job.desc}</td>
                 <td>{job.techStack}</td>
-                <td>{job.applylink}</td>
+                <td>
+                  <a href={`${job.applylink}`} target="_blank">
+                    <div>Apply</div>
+                  </a>
+                </td>
               </tr>
             ))}
           </tbody>
