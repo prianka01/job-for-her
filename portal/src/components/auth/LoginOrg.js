@@ -42,7 +42,7 @@ class LoginOrg extends Component {
     e.preventDefault();
 
     const userData = {
-      name: this.state.email,
+      name: this.state.name,
       password: this.state.password,
     };
 
@@ -74,8 +74,8 @@ class LoginOrg extends Component {
                   onChange={this.onChange}
                   value={this.state.name}
                   error={errors.name}
-                  id="email"
-                  type="email"
+                  id="name"
+                  type="text"
                   className={classnames("", {
                     invalid: errors.name || errors.namenotfound,
                   })}
